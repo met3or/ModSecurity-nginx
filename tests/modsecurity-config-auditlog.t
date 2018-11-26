@@ -65,7 +65,7 @@ http {
                 SecRule ARGS "@streq root" "id:21,phase:1,auditlog,status:302,redirect:http://www.modsecurity.org"
                 SecDebugLog %%TESTDIR%%/auditlog-debug-root.txt
                 SecDebugLogLevel 9
-                SecAuditEngine On
+                SecAuditEngine RelevantOnly
                 SecAuditLogParts AB
                 SecAuditLog %%TESTDIR%%/auditlog-root.txt
                 SecAuditLogType Serial
@@ -78,7 +78,7 @@ http {
                 SecRule ARGS "@streq subfolder2" "id:41,phase:1,status:302,auditlog,redirect:http://www.modsecurity.org"
                 SecDebugLog %%TESTDIR%%/auditlog-debug-subfolder2.txt
                 SecDebugLogLevel 9
-                SecAuditEngine On
+                SecAuditEngine RelevantOnly
                 SecAuditLogParts AB
                 SecResponseBodyAccess On
                 SecAuditLog %%TESTDIR%%/auditlog-subfolder2.txt
@@ -93,7 +93,7 @@ http {
                 SecDebugLog %%TESTDIR%%/auditlog-debug-subfolder1.txt
                 SecDebugLogLevel 9
                 SecAuditLogParts AB
-                SecAuditEngine On
+                SecAuditEngine RelevantOnly
                 SecAuditLog %%TESTDIR%%/auditlog-subfolder1.txt
                 SecAuditLogType Serial
                 SecAuditLogStorageDir %%TESTDIR%%/
@@ -107,7 +107,7 @@ http {
                 SecRule ARGS "@streq subfolder4withE" "id:2,phase:1,ctl:auditLogParts=+E,auditlog"
                 SecDebugLog %%TESTDIR%%/auditlog-debug-subfolder4.txt
                 SecDebugLogLevel 9
-                SecAuditEngine On
+                SecAuditEngine RelevantOnly
                 SecAuditLogParts AB
                 SecAuditLog %%TESTDIR%%/auditlog-subfolder4.txt
                 SecAuditLogType Serial
@@ -121,7 +121,7 @@ http {
                 SecDebugLog %%TESTDIR%%/auditlog-debug-subfolder3.txt
                 SecDebugLogLevel 9
                 SecAuditLogParts AB
-                SecAuditEngine On
+                SecAuditEngine RelevantOnly
                 SecAuditLog %%TESTDIR%%/auditlog-subfolder3.txt
                 SecAuditLogType Serial
                 SecAuditLogStorageDir %%TESTDIR%%/
